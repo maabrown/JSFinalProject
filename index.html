@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spotify.me</title>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
   
-  <div id="results-view">
-  <form id="search">
-    <h1>spotify.me</h1>
-    <input type="search" id="search-keyword" val="">
-    <select id="search-type">
-      <option value="artist">Search by artist</option>
-      <option value="track">Search by track name</option>
-    </select>
-    <input type="submit" value="Submit" id="submit-button">
-  </form>
-  
+<div id="results-view">
   <ul id="results"></ul>
   <ul id="albumArt"></ul>
 </div>
 
 <div id="login-view">
-  <button class="btn btn-default"> 
-    <a href="https://api.instagram.com/oauth/authorize/?client_id=f0d636658a89435cb4d93b90148ad559&redirect_uri=http://maabrown.github.io/JSFinalProject&response_type=token&scope=public_content">Click Here to Begin!</a>
+  <button class="btn btn-default" id="appStartButton"> 
+    <a href="https://instagram.com/oauth/authorize/?client_id=96a678eed7f54405814b19570ee6cf35&redirect_uri=http://localhost:3000&response_type=token&scope=public_content">Click Here to Begin!</a>
     
   </button>
 </div>

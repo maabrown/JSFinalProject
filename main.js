@@ -1,14 +1,31 @@
-$('#results-view').hide();
-
-$(function() {
-
 $results = $('#results');
 $albumArt = $('#albumArt')
+$appStartButton = $('#appStartButton');
 
+
+
+var uriHash = window.location.hash;
+
+var accessToken = uriHash.replace('#access_token=', 'access_token=');
+
+console.log(uriHash);
+
+$results.css('display', 'none');
+$albumArt.css('display', 'none');
+
+$appStartButton.click( function(e) {
+
+	$results.show();
+	$albumArt.show();
+	newpage();
+	instaSearch(accessToken);
+	console.log('click works');
+})
+
+// newpage();
+// instaSearch(accessToken);
 
 function newpage() {
-	$('#login-view').hide();
-	$('#results-view').show();
 		$.ajax({
 			url: 'https://en.wikipedia.org/w/api.php?action=query&titles=SWV&format=json&prop=extracts&exintro=&indexpageids=&explaintext=&callback=?',
 			type: 'GET',
@@ -70,15 +87,16 @@ function newpage() {
 		      	}
 		      })
 
-		$.ajax({
-			url: 'https://api.instagram.com/v1/tags/SWV/media/recent?access_token=ACCESS-TOKEN',
+} // new page function ends
+
+function instaSearch(accessToken) {
+			var url = 'https://api.instagram.com/v1/tags/SWV/media/recent?access_token=' + accessToken;
+			$.ajax({
+			url: url,
 			method: 'get',
 			dataType: 'jsonp',
 			success: function(response) {
 				console.log(response);
 			}
 		})
-
-} // new page function ends
-
-});
+}
