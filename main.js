@@ -6,21 +6,17 @@ $appStartButton = $('#appStartButton');
 
 var uriHash = window.location.hash;
 
-var accessToken = uriHash.replace('#access_token=', 'access_token=');
 
-console.log(uriHash);
-
-$results.css('display', 'none');
-$albumArt.css('display', 'none');
-
-$appStartButton.click( function(e) {
-
-	$results.show();
-	$albumArt.show();
+if (uriHash.length > 0) {
+	var accessToken = uriHash.replace('#access_token=', 'access_token=');
+	console.log('working');
 	newpage();
 	instaSearch(accessToken);
-	console.log('click works');
-})
+} else {
+	console.log('this does not work')
+}
+
+
 
 // newpage();
 // instaSearch(accessToken);
@@ -90,7 +86,10 @@ function newpage() {
 } // new page function ends
 
 function instaSearch(accessToken) {
-			var url = 'https://api.instagram.com/v1/tags/SWV/media/recent?access_token=' + accessToken;
+
+			
+			var url = 'https://api.instagram.com/v1/tags/iceland/media/recent?' + accessToken;
+			console.log(url);
 			$.ajax({
 			url: url,
 			method: 'get',
@@ -98,5 +97,5 @@ function instaSearch(accessToken) {
 			success: function(response) {
 				console.log(response);
 			}
-		})
+			})
 }
