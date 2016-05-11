@@ -6,20 +6,20 @@ $keyword = $('#search-keyword');
 $submit = $('#submit-button-WikiSpot');
 $submitInsta = $('#submit-button-Instagram');
 $keywordInsta = $('#search-keyword-Insta');
+$appView = $('#app-view');
+$loginView = $('#login-view');
 
-
+$appView.hide();
 
 var uriHash = window.location.hash;
 
+if (uriHash.length > 0) {
+	$appView.show();
+	$loginView.hide();
 
-// if (uriHash.length > 0) {
-// 	var accessToken = uriHash.replace('#access_token=', 'access_token=');
-// 	console.log('working');
-// 	// newpage();
-// 	instaSearch(accessToken);
-// } else {
-// 	console.log('this does not work')
-// }
+} else {
+	console.log('this does not work')
+}
 
 
 $submit.click( function(e) {

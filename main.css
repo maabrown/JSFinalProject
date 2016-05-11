@@ -32,3 +32,15 @@ a {
   	margin: 3px;
   	background-size: cover;
 }
+
+
+#wikiSpotForm {
+	display: inline-block;
+	background-color: green;
+	margin-left: 400px;
+}
+
+#instagramForm {
+	display: inline-block;
+	background-color: blue;
+}
