@@ -2,6 +2,9 @@ $results = $('#results');
 $albumArt = $('#albumArt');
 $appStartButton = $('#appStartButton');
 $instaPhoto = $('#instaPhoto');
+$keyword = $('#search-keyword');
+$submit = $('#submit-button');
+
 
 
 
@@ -11,20 +14,27 @@ var uriHash = window.location.hash;
 if (uriHash.length > 0) {
 	var accessToken = uriHash.replace('#access_token=', 'access_token=');
 	console.log('working');
-	newpage();
+	// newpage();
 	instaSearch(accessToken);
 } else {
 	console.log('this does not work')
 }
 
 
+$submit.click( function(e) {
+	e.preventDefault();
+	var keyword = $keyword.val();
+	newpage(keyword)
+})
 
 // newpage();
 // instaSearch(accessToken);
 
-function newpage() {
+function newpage(keyword) {
+		
+
 		$.ajax({
-			url: 'https://en.wikipedia.org/w/api.php?action=query&titles=SWV&format=json&prop=extracts&exintro=&indexpageids=&explaintext=&callback=?',
+			url: 'https://en.wikipedia.org/w/api.php?action=query&titles=' + keyword + '&format=json&prop=extracts&exintro=&indexpageids=&explaintext=&callback=?',
 			type: 'GET',
 			dataType: 'json',
 			success: function(data) {
@@ -45,7 +55,7 @@ function newpage() {
 			
 		      	// var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=artist';
 
-		      	url: 'https://api.spotify.com/v1/search?q=SWV&type=artist',
+		      	url: 'https://api.spotify.com/v1/search?q=' + keyword + '&type=artist',
 		      	method: 'get',
 		      	success: function(response) {
 		      		// var artists = response.artists.items;
@@ -100,7 +110,6 @@ function instaSearch(accessToken) {
 				var consoleResponse = response.data
 				console.log(consoleResponse);
 				for (var i = 0; i < consoleResponse.length; i++) {
-					//$instaPhoto.append("<img src='" + consoleResponse[i].link +"'>")
 					var imageURL = consoleResponse[i].images.low_resolution.url;
 					var imageDiv = $('<div></div>').css('background-image', 'url(' + imageURL + ')').addClass('pics');                   
 					$instaPhoto.append(imageDiv);

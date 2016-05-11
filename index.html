@@ -4,19 +4,29 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  
+
+<div id="login-view">
+  <button class="btn btn-default" id="appStartButton"> 
+    <a href="https://instagram.com/oauth/authorize/?client_id=96a678eed7f54405814b19570ee6cf35&redirect_uri=http://localhost:3000&response_type=token&scope=public_content">Click Here to Begin!</a>
+  </button>
+</div>
+
+<form>
+	<h1>Wiki and Spotify</h1>
+    <input type="search" id="search-keyword" val="">
+    <input type="submit" value="Submit" id="submit-button">
+</form>  
+
 <div id="results-view">
   <ul id="results"></ul>
   <ul id="albumArt"></ul>
   <div id="instaPhoto"></div>
 </div>
 
-<div id="login-view">
-  <button class="btn btn-default" id="appStartButton"> 
-    <a href="https://instagram.com/oauth/authorize/?client_id=96a678eed7f54405814b19570ee6cf35&redirect_uri=http://localhost:3000&response_type=token&scope=public_content">Click Here to Begin!</a>
-    
-  </button>
-</div>
+
+
+
+
 
   <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
   <script src="main.js"></script>
