@@ -3,28 +3,43 @@ $albumArt = $('#albumArt');
 $appStartButton = $('#appStartButton');
 $instaPhoto = $('#instaPhoto');
 $keyword = $('#search-keyword');
-$submit = $('#submit-button');
-
+$submit = $('#submit-button-WikiSpot');
+$submitInsta = $('#submit-button-Instagram');
+$keywordInsta = $('#search-keyword-Insta');
 
 
 
 var uriHash = window.location.hash;
 
 
-if (uriHash.length > 0) {
-	var accessToken = uriHash.replace('#access_token=', 'access_token=');
-	console.log('working');
-	// newpage();
-	instaSearch(accessToken);
-} else {
-	console.log('this does not work')
-}
+// if (uriHash.length > 0) {
+// 	var accessToken = uriHash.replace('#access_token=', 'access_token=');
+// 	console.log('working');
+// 	// newpage();
+// 	instaSearch(accessToken);
+// } else {
+// 	console.log('this does not work')
+// }
 
 
 $submit.click( function(e) {
 	e.preventDefault();
 	var keyword = $keyword.val();
 	newpage(keyword)
+})
+
+$submitInsta.click( function(e) {
+	e.preventDefault();
+	var keyword = $keywordInsta.val();
+	if (uriHash.length > 0) {
+		var accessToken = uriHash.replace('#access_token=', 'access_token=');
+		console.log('working');
+		// newpage();
+		instaSearch(accessToken, keyword);
+	} else {
+		console.log('this does not work')
+	}
+
 })
 
 // newpage();
@@ -96,10 +111,10 @@ function newpage(keyword) {
 
 } // new page function ends
 
-function instaSearch(accessToken) {
+function instaSearch(accessToken, keyword) {
 
 			
-			var url = 'https://api.instagram.com/v1/tags/iceland/media/recent?' + accessToken;
+			var url = 'https://api.instagram.com/v1/tags/' + keyword + '/media/recent?' + accessToken;
 			console.log(url);
 			$.ajax({
 			url: url,
