@@ -30,12 +30,12 @@ $submit.click( function(e) {
 
 $submitInsta.click( function(e) {
 	e.preventDefault();
-	var keyword = $keywordInsta.val();
+	var keywordInsta = $keywordInsta.val();
 	if (uriHash.length > 0) {
 		var accessToken = uriHash.replace('#access_token=', 'access_token=');
 		console.log('working');
 		// newpage();
-		instaSearch(accessToken, keyword);
+		instaSearch(accessToken, keywordInsta);
 	} else {
 		console.log('this does not work')
 	}
@@ -46,7 +46,8 @@ $submitInsta.click( function(e) {
 // instaSearch(accessToken);
 
 function newpage(keyword) {
-		
+		$albumArt.empty();
+		$results.empty();
 
 		$.ajax({
 			url: 'https://en.wikipedia.org/w/api.php?action=query&titles=' + keyword + '&format=json&prop=extracts&exintro=&indexpageids=&explaintext=&callback=?',
