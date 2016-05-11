@@ -33,6 +33,23 @@ a {
   	background-size: cover;
 }
 
+#login-view {
+	text-align: center;
+}
+
+#appStartButton {
+	background-image: url(rainbowimg.jpg);
+	height: 300px;
+	background-size: cover;
+	width: 300px;
+}
+
+#appStartButton a {
+	position: relative;
+	top: 77px;
+	font-size: large;
+	color: blueviolet;
+}
 
 #wikiSpotForm {
 	display: inline-block;
