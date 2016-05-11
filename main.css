@@ -18,13 +18,17 @@ a {
 }
 
 #instaPhoto {
-	display: flex;
-	flex-wrap: wrap;
+/*	display: flex;
+	flex-wrap: wrap;*/
+	display: block;
 	height: 500px
 }
 
 .pics {
-	  flex: 1 1 200px;
-  margin: 3px;
-  background-size: cover;
+/*	  flex: 1 1 200px;*/
+	display: inline-block;
+	height: 500px;
+	width: 500px;
+  	margin: 3px;
+  	background-size: cover;
 }

@@ -102,8 +102,7 @@ function instaSearch(accessToken) {
 				for (var i = 0; i < consoleResponse.length; i++) {
 					//$instaPhoto.append("<img src='" + consoleResponse[i].link +"'>")
 					var imageURL = consoleResponse[i].images.low_resolution.url;
-					console.log(imageURL);
-					var imageDiv = $('<div></div>').css('background-image', 'url(' + imageURL + ')').addClass('pics');
+					var imageDiv = $('<div></div>').css('background-image', 'url(' + imageURL + ')').addClass('pics');                   
 					$instaPhoto.append(imageDiv);
 				}
 			}
