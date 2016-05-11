@@ -16,3 +16,15 @@ h1 {
 a {
   color: #c00;
 }
+
+#instaPhoto {
+	display: flex;
+	flex-wrap: wrap;
+	height: 500px
+}
+
+.pics {
+	  flex: 1 1 200px;
+  margin: 3px;
+  background-size: cover;
+}
